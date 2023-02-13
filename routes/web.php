@@ -22,17 +22,26 @@ Route::get('/', function (){
 
 Route::get('/book', [LibraryController::class, 'index']);
 
-Route::get('/book/create', function () {
-    return view('create');
+Route::get('/book/create', [LibraryController::class, 'create']);
+
+Route::post('/book', [LibraryController::class, 'store']);
+
+Route::get('/book/{id}/edit', function ($id) {
+    $book = Library::find($id);
+    return view('/edit', compact('book'));
 });
 
-Route::post('/book', function (Request $request) {
-
-    Library::create([
+Route::patch('/book/{id}', function (Request $request, $id) {
+    $book = Library::find($id);
+    $book->update([
         'title' => $request->title,
         'author' => $request->author,
         'pages' => $request->pages
     ]);
+    return redirect('/book');
+});
 
+Route::delete('book/{id}', function ($id){
+    $book = Library::find($id)->delete();
     return redirect('/book');
 });
