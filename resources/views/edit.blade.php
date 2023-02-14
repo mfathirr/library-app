@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('main') 
 <div class="mt-5 mx-auto" style="width: 380px">
-    @if ($errors->any())
+    {{-- @if ($errors->any())
     <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
@@ -9,7 +9,7 @@
             @endforeach
         </ul>
     </div>
-    @endif
+    @endif --}}
 
     <div class="card">
         <div class="card-body">
@@ -20,7 +20,7 @@
                     <label for="" class="form-label">Title</label>
                     <input type="text" class="form-control" name="title" value="{{ $book->title }}">
                     @error('title')
-                        <span class="text-danger">
+                        <span class="text-danger fw-bold">
                             {{ $message }}
                         </span>
                     @enderror
@@ -29,7 +29,7 @@
                     <label for="" class="form-label">Author</label>
                     <input type="text" class="form-control"  name="author" value="{{ $book->author }}"></input>
                     @error('author')
-                        <span class="text-danger">
+                        <span class="text-danger fw-bold">
                             {{ $message }}
                         </span>
                     @enderror
@@ -38,7 +38,7 @@
                     <label for="" class="form-label">Pages Of Book</label>
                     <input type="text" class="form-control"  name="pages" value="{{ $book->pages }}"></input>
                     @error('pages')
-                        <span class="text-danger">
+                        <span class="text-danger fw-bold">
                             {{ $message }}
                         </span>
                     @enderror

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Library;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\LibraryRequest;
+use Illuminate\Validation\Rules\Unique;
 
 class LibraryController extends Controller
 {
@@ -17,7 +19,7 @@ class LibraryController extends Controller
             return view('create');
     }
 
-    public function store(Request $request) {
+    public function store(LibraryRequest $request) {
         Library::create([
             'title' => $request->title,
             'author' => $request->author,
@@ -27,10 +29,23 @@ class LibraryController extends Controller
         return redirect('/book');
     }
 
-    public function num () {
-        $statement  = DB::select("SHOW TABLE STATUS LIKE 'users'");
-        $nextUserId = $statement[0]->Auto_increment;
-        return $nextUserId;
+    public function edit($id) {
+        $book = Library::find($id);
+        return view('/edit', compact('book'));
     }
 
+    public function update(LibraryRequest $request, $id){
+        $book = Library::find($id);
+        $book->update([
+            'title' => $request->title,
+            'author' => $request->author,
+            'pages' => $request->pages
+        ]);
+        return redirect('/book');
+    }
+
+    public function delete ($id) {
+        $book = Library::find($id)->delete();
+        return redirect('/book');
+    }
 }
