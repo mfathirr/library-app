@@ -24,14 +24,17 @@
               </div>
             </label>
             <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-              <li>
-                <a class="justify-between">
-                  Profile
-                  <span class="badge">New</span>
-                </a>
+              @guest
+              <li><a href="{{route("register")}}">Register</a></li>
+              <li><a href="{{route("login")}}">Login</a></li>
+              @else
+              <li><a href="{{route("logout")}}" onclick="event.preventDefault();  
+                document.getElementById('logout-form').submit();">Logout</a>
               </li>
-              <li><a>Settings</a></li>
-              <li><a>Logout</a></li>
+              <form action="{{route('logout')}}" id="logout-form" method="POST">
+                @csrf
+              </form>
+              @endguest
             </ul>
           </div>
         </div>
