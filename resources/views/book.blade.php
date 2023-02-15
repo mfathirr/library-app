@@ -13,7 +13,9 @@
                         <th class="text-base font-mono">Title</th>
                         <th class="text-base font-mono">Author</th>
                         <th class="text-base font-mono">Pages of Book</th>
+                        @if (Auth::user()->role == 'admin')
                         <th class="text-base font-mono">Edit/Delete</th>
+                        @endif
                     </tr>
                 </thead>
             <tbody>
@@ -22,6 +24,7 @@
                 <td class="text-sm">{{ $item->title }}</td>
                 <td class="text-sm">{{ $item->author }}</td>
                 <td class="text-sm">{{ $item->pages }}</td>
+                @if (Auth::user()->role == 'admin')
                 <td>
                     <form action="{{ url("/book/$item->id") }}" method="post">
                         @csrf
@@ -36,6 +39,7 @@
                         </button>
                     </form>
                 </td>
+                @endif
             </tr>
             @endforeach
             </tbody>
