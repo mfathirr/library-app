@@ -10,6 +10,11 @@ use Illuminate\Validation\Rules\Unique;
 
 class LibraryController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index() {
         $book = Library::all();
         return view('book', compact('book'));

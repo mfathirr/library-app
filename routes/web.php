@@ -22,12 +22,12 @@ Route::get('/', function (){
 
 Route::get('/book', [LibraryController::class, 'index']);
 
-Route::get('/book/create', [LibraryController::class, 'create']);
+Route::get('/book/create', [LibraryController::class, 'create'])->middleware('admin');
 
-Route::post('/book', [LibraryController::class, 'store']);
+Route::post('/book', [LibraryController::class, 'store'])->middleware('admin');
 
-Route::get('/book/{id}/edit', [LibraryController::class, 'edit']);
+Route::get('/book/{id}/edit', [LibraryController::class, 'edit'])->middleware('admin');
 
-Route::patch('/book/{id}', [LibraryController::class, 'update']);
+Route::patch('/book/{id}', [LibraryController::class, 'update'])->middleware('admin');
 
-Route::delete('book/{id}', [LibraryController::class, 'delete']);
+Route::delete('book/{id}', [LibraryController::class, 'delete'])->middleware('admin');
