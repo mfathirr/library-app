@@ -1,19 +1,19 @@
 @extends('layouts.app')
 @section('main')
-<div class="container h-auto">
-        <a href="{{ url("/book/create") }}" class="btn btn-primary rounded-md text-gray-100 float-right my-5 shadow-lg shadow-indigo-500/50 hover:shadow-indigo-700/50 mr-3">
+<div class="container h-full">
+        <a href="{{ url("/book/create") }}" class="sticky top-32 btn btn-primary rounded-md text-gray-100 float-right my-5 shadow-lg shadow-indigo-500/50 hover:shadow-indigo-700/50 mr-3">
             <svg class="w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
         </a>
-    <div class="mx-20 mt-10 overflow-y-scroll h-[80vh]">
-        <table class="table table-zebra w-full shadow-xl">
+    <div class="mx-20 mt-10 drop-shadow-xl">
+        <table class="table table-zebra w-full">
                 <thead class="sticky">
                     <tr class="text-center">
-                        <th class="text-base">Title</th>
-                        <th class="text-base">Author</th>
-                        <th class="text-base">Pages of Book</th>
-                        <th class="text-base">Edit/Delete</th>
+                        <th class="text-base font-mono">Title</th>
+                        <th class="text-base font-mono">Author</th>
+                        <th class="text-base font-mono">Pages of Book</th>
+                        <th class="text-base font-mono">Edit/Delete</th>
                     </tr>
                 </thead>
             <tbody>
