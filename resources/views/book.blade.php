@@ -9,8 +9,12 @@
         </a>
         @endif
     <div class="mx-20 mt-10 drop-shadow-xl">
+        <div class="flex flex-col mx-5">
+            <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
+              <div class="py-2 inline-block min-w-full sm:px-6 lg:px-8">
+                <div class="overflow-x-auto">
         <table class="table table-zebra w-full">
-                <thead class="sticky">
+                <thead class="">
                     <tr class="text-center">
                         <th class="text-base font-mono">Title</th>
                         <th class="text-base font-mono">Author</th>
@@ -20,7 +24,7 @@
                         @endif
                     </tr>
                 </thead>
-            <tbody>
+            <tbody class="">
             @foreach ($book as $item)
             <tr class="text-center">
                 <td class="text-sm">{{ $item->title }}</td>
@@ -46,6 +50,10 @@
             @endforeach
             </tbody>
         </table>
+    </div>
+    </div>
+</div>
+</div>
     </div>
 </div>
 @endsection
