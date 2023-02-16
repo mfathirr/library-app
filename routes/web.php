@@ -31,3 +31,7 @@ Route::get('/book/{id}/edit', [LibraryController::class, 'edit'])->middleware('a
 Route::patch('/book/{id}', [LibraryController::class, 'update'])->middleware('admin');
 
 Route::delete('book/{id}', [LibraryController::class, 'delete'])->middleware('admin');
+
+Route::get('/dekdek', function () {
+    return view('auth.verify-email');
+});
