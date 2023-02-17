@@ -25,7 +25,7 @@
                                 </tr>
                             </thead>
                         <tbody class="">
-                        @foreach ($book as $item)
+                        @foreach ($data as $item)
                         <tr class="text-center">
                             <td class="text-sm">{{ $item->title }}</td>
                             <td class="text-sm">{{ $item->author }}</td>
@@ -50,9 +50,12 @@
                         @endforeach
                         </tbody>
                     </table>
+                    
                 </div>
             </div>
         </div>
+        <br>
+        {{$data->links('pagination::tailwind')}}
     </div>
 </div>
 </div>

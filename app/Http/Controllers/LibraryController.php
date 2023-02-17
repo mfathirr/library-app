@@ -18,7 +18,8 @@ class LibraryController extends Controller
     
     public function index() {
         $book = Library::all();
-        return view('book', compact('book'));
+        $book = Library::paginate(5);
+        return view('book', ['data' => $book]);
     }
 
     public function create() {
