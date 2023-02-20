@@ -17,8 +17,8 @@ class LibraryController extends Controller
     }
     
     public function index() {
-        $book = Library::all();
-        $book = Library::paginate(5);
+        $book = Library::orderBy('created_at', 'desc')->paginate(5);
+        // $book = Library::paginate(5);
         return view('book', ['data' => $book]);
     }
 
