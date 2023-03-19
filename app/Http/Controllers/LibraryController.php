@@ -22,6 +22,14 @@ class LibraryController extends Controller
         return view('book', ['data' => $book]);
     }
 
+    public function search(Request $request) {
+        $search = $request->input('search');
+
+        $book = Library::query()->where('title', 'LIKE', "%{$search}%")->paginate();
+
+        return view('book', ['data' => $book]);
+    }
+
     public function create() {
             return view('create');
     }

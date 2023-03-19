@@ -22,6 +22,8 @@ Route::get('/', function (){
 
 Route::get('/book', [LibraryController::class, 'index']);
 
+Route::get('/search', [LibraryController::class, 'search'])->name('search');
+
 Route::get('/book/create', [LibraryController::class, 'create'])->middleware('admin');
 
 Route::post('/book', [LibraryController::class, 'store'])->middleware('admin');
